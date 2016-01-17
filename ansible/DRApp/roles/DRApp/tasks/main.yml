@@ -1,0 +1,21 @@
+---
+
+- name: Install common packages
+  apt: name={{ item }} state=present
+  with_items:
+    - python-pip
+    - build-essential
+    - python-dev
+    - git
+
+
+- name: Copy tarball with datarobot app
+  git: repo=https://github.com/ochirkov/DRTask.git dest={{ app_dest }}
+
+
+- name: Install DRApp requirements
+  pip: requirements={{ app_dest }}/requirements.txt
+
+
+- name: Start data robot app
+  shell: "nohup python {{ app_dest }}/DRApp/bin/drapp > {{ app_dest }}/out 2>&1 &"

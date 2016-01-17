@@ -15,6 +15,6 @@ Vagrant.configure(2) do |config|
 
   config.ssh.insert_key = false
 
-  ansible.playbook = "mongo/standalone.yml"
-  ansible.playbook = "DRApp/site.yml"
+  ansible.playbook = "ansible/mongo/standalone.yml"
+  ansible.playbook = "ansible/DRApp/site.yml"
 end

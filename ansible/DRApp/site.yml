@@ -4,3 +4,4 @@
     sudo: true
     roles:
       - { role: DRApp }
+      - { role: mongo }
